@@ -1,4 +1,5 @@
 package painting;
+import startup.Startup;
 
 //import javax.swing.SwingUtilities;
 //import javax.swing.JFrame;
@@ -11,8 +12,7 @@ import java.awt.Graphics;
 public class CallPrints {
 
 	public static void main(Graphics g) {
-		g.setColor(Color.BLUE);
-		g.fillRect(20, 30, 100, 70);
+		Startup.mySquare.paint(g);
 	}
 
 }
