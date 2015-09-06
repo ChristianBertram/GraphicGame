@@ -3,11 +3,8 @@ package painting;
 import javax.swing.SwingUtilities;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-//import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import input.MyKeyListener;
-import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Window {
@@ -48,6 +45,9 @@ class MyPanel extends JPanel {
 		KeyListener myKeyListener = new input.MyKeyListener();
 		addKeyListener(myKeyListener);
 		setFocusable(true);
+		
+		addMouseListener(new input.MyMouseListener());
+		addMouseMotionListener(new input.MyMouseListener());
     }
 	
 	@Override

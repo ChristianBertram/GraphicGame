@@ -2,7 +2,6 @@ package gameLoop;
 
 import painting.Window;
 import startup.Startup;
-import java.awt.Graphics;
 
 public class GameLoop {
 	
@@ -32,15 +31,22 @@ public class GameLoop {
 				fps = 0;
 			}
 			
-			Startup.mySquare.update(delta);
-			painting.Window.repaint();
+			//WHAT TO UPDATE:
 			
-			System.out.println(delta);
+			
+			Startup.mainPlayer.update(delta);
+			Window.repaint();
+			
+			
+			//
+			
+			//System.out.println(delta);
 			//If loop executed under the OPTIMAL_TIME, the Thread sleeps, so that it doesn't 100% the CPU.
-			//Thread.sleep() is not accurate but that's OK since the loop uses a variable timestep.
-			try{
-				Thread.sleep((lastLoopTime-System.nanoTime() + OPTIMAL_TIME)/1000000);
-			} catch (InterruptedException e) {}
+			//Thread.sleep() is not accurate but that's OK since the loop uses a variable time step.
+			long sleepTime = (lastLoopTime-System.nanoTime() + OPTIMAL_TIME)/1000000;
+			if (sleepTime > 0) {
+				try { Thread.sleep(sleepTime); } catch (InterruptedException e) {}
+			}
 		}
 		
 	}

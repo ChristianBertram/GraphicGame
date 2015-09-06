@@ -12,7 +12,7 @@ import java.awt.Graphics;
 public class CallPrints {
 
 	public static void main(Graphics g) {
-		Startup.mySquare.paint(g);
+		Startup.mainPlayer.paint(g, new Color(20,200,100));
 	}
-
+	
 }

@@ -2,18 +2,18 @@ package startup;
 
 import gameLoop.GameLoop;
 import painting.Window;
-import square.Square;
+import player.Player;
 
 public class Startup {
 	
-	public static Square mySquare = null;
+	public static Player mainPlayer = null;
 	
 	public static void main(String[] args) {
-		mySquare = new Square(50, 70, 10, 20);
+		mainPlayer = new Player(50, 70);
 		
-		painting.Window.main();
+		Window.main();
 		
-		gameLoop.GameLoop loop = new gameLoop.GameLoop();
+		GameLoop loop = new GameLoop();
 		
 		loop.runGameLoop();
 	}
