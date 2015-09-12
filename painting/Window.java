@@ -10,6 +10,7 @@ import java.awt.event.KeyListener;
 public class Window {
 	
 	public static JFrame f = null;
+	public static input.Inputs inputs = new input.Inputs();
 
 	public static void main() {
 		SwingUtilities.invokeLater(new Runnable() {
@@ -40,14 +41,14 @@ public class Window {
 }
 
 class MyPanel extends JPanel {
-
-	public MyPanel() {
-		KeyListener myKeyListener = new input.MyKeyListener();
+	
+	public MyPanel() {		
+		KeyListener myKeyListener = new input.MyKeyListener(painting.Window.inputs);
 		addKeyListener(myKeyListener);
 		setFocusable(true);
 		
-		addMouseListener(new input.MyMouseListener());
-		addMouseMotionListener(new input.MyMouseListener());
+		addMouseListener(new input.MyMouseListener(painting.Window.inputs));
+		addMouseMotionListener(new input.MyMouseListener(painting.Window.inputs));
     }
 	
 	@Override

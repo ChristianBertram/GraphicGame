@@ -61,12 +61,12 @@ public class Vector {
 		return (int)(length * Math.sin(Math.toRadians(theta)));
 	}
 	
-	public void moveRelative(int x, int y) {
+	public void translateRelative(int x, int y) {
 		xPos += x;
 		yPos += y;
 	}
 	
-	public void move(int x, int y) {
+	public void translate(int x, int y) {
 		xPos = x;
 		yPos = y;
 	}
@@ -92,11 +92,11 @@ public class Vector {
 		theta = simplifyAngle(rotation);
 	}
 	
-	public void extendRelative(double extension) {
+	public void sizeRelative(double extension) {
 		length += extension;
 	}
 	
-	public void extend(double extension) {
+	public void size(double extension) {
 		length = extension;
 	}
 	

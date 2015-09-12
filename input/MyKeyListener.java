@@ -4,6 +4,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class MyKeyListener implements KeyListener {
+	
+	private Inputs out;
+	
+	public MyKeyListener(Inputs out) {
+		this.out = out;
+	}
+	
 	@Override
 	public void keyTyped(KeyEvent e) {
 		
@@ -11,13 +18,13 @@ public class MyKeyListener implements KeyListener {
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
-		Inputs.keys[e.getKeyCode()] = true;
+		out.keys[e.getKeyCode()] = true;
 		//System.out.println(e.getKeyCode());
 	}
 	
 	@Override
 	public void keyReleased(KeyEvent e) {
-		Inputs.keys[e.getKeyCode()] = false;
+		out.keys[e.getKeyCode()] = false;
 		//System.out.println(e.getKeyCode());
 	}
 }

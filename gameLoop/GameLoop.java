@@ -1,11 +1,11 @@
 package gameLoop;
 
 import painting.Window;
-import startup.Startup;
+import main.Main;
 
 public class GameLoop {
 	
-	boolean stopLoop = false;
+	public boolean stopLoop = false;
 	
 	public void runGameLoop() {
 		
@@ -34,7 +34,7 @@ public class GameLoop {
 			//WHAT TO UPDATE:
 			
 			
-			Startup.mainPlayer.update(delta);
+			Main.mainPlayer.update(delta);
 			Window.repaint();
 			
 			

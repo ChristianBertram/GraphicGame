@@ -2,7 +2,7 @@ package player;
 
 import java.awt.Graphics;
 import java.awt.Color;
-import input.Inputs;
+import painting.Window;
 import vector.Vector;
 
 public class Player {
@@ -14,25 +14,25 @@ public class Player {
 	}
 	
 	private void moveRelative(int x, int y) {
-		vector.moveRelative(x, y);
+		vector.translateRelative(x, y);
 	}
 	
 	public void update(double delta) {
 		//Update angle (direction) to where mouse is relative to the player.
-		Vector playerToMouse = new Vector(vector.getXPos(), vector.getYPos(), Inputs.mouseX - vector.getXPos(), Inputs.mouseY - vector.getYPos(), false);
+		Vector playerToMouse = new Vector(vector.getXPos(), vector.getYPos(), Window.inputs.mouseX - vector.getXPos(), Window.inputs.mouseY - vector.getYPos(), false);
 		vector.rotate(playerToMouse.getTheta());
 		
 		//UP
-		if (Inputs.keys[87] || Inputs.keys[38])
+		if (Window.inputs.keys[87] || Window.inputs.keys[38])
 			moveRelative(0, (int)(-1 * speed * delta));
 		//DOWN
-		if (Inputs.keys[83] || Inputs.keys[40])
+		if (Window.inputs.keys[83] || Window.inputs.keys[40])
 			moveRelative(0, (int)(speed * delta));
 		//RIGHT
-		if (Inputs.keys[68] || input.Inputs.keys[39])
+		if (Window.inputs.keys[68] || Window.inputs.keys[39])
 			moveRelative((int)(speed * delta), 0);
 		//LEFT
-		if (Inputs.keys[65] || Inputs.keys[37])
+		if (Window.inputs.keys[65] || Window.inputs.keys[37])
 			moveRelative((int)(-1 * speed * delta), 0);
 	}
 	

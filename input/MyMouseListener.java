@@ -4,27 +4,32 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class MyMouseListener extends MouseAdapter {
+	
+	private Inputs out;
+	
+	public MyMouseListener(Inputs out) {
+		this.out = out;
+	}
+	
 	@Override
 	public void mousePressed(MouseEvent e) {
-		Inputs.mouseDown = true;
-		Inputs.mouseX = e.getX();
-		Inputs.mouseY = e.getY();
+		out.mouseDown = true;
 	}
 	
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		Inputs.mouseDown = false;
+		out.mouseDown = false;
 	}
 	
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		Inputs.mouseX = e.getX();
-		Inputs.mouseY = e.getY();
+		out.mouseX = e.getX();
+		out.mouseY = e.getY();
 	}
 	
 	@Override
 	public void mouseDragged(MouseEvent e) {
-		Inputs.mouseX = e.getX();
-		Inputs.mouseY = e.getY();
+		out.mouseX = e.getX();
+		out.mouseY = e.getY();
 	}
 }

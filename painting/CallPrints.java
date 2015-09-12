@@ -1,5 +1,5 @@
 package painting;
-import startup.Startup;
+import main.Main;
 
 //import javax.swing.SwingUtilities;
 //import javax.swing.JFrame;
@@ -12,7 +12,7 @@ import java.awt.Graphics;
 public class CallPrints {
 
 	public static void main(Graphics g) {
-		Startup.mainPlayer.paint(g, new Color(20,200,100));
+		Main.mainPlayer.paint(g, new Color(20,200,100));
 	}
 	
 }
