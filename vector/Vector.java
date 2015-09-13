@@ -18,21 +18,29 @@ public class Vector {
 		if (polar) {
 			this.length = lengthOrX;
 			this.theta = thetaOrY;
-		}else {
+		}else {		
 			//convert cartesian/rectangular to polar
 			this.length = Math.sqrt((lengthOrX*lengthOrX)+(thetaOrY*thetaOrY));
-			double absTheta = Math.toDegrees(Math.atan(Math.abs(thetaOrY/lengthOrX)));
-			if (lengthOrX >= 0 && thetaOrY >= 0) {
-				this.theta = absTheta;
-			}
-			else if (lengthOrX < 0 && thetaOrY >= 0) {
-				this.theta = 180 - absTheta;
-			}
-			else if (lengthOrX < 0 && thetaOrY < 0) {
-				this.theta = 180 + absTheta;
-			}
-			else {
-				this.theta = 360 - absTheta;
+			double absTheta;
+			if (lengthOrX != 0) {
+				absTheta = Math.toDegrees(Math.atan(Math.abs(thetaOrY/lengthOrX)));
+				
+				if (lengthOrX >= 0 && thetaOrY >= 0) {
+					this.theta = absTheta;
+				}
+				else if (lengthOrX < 0 && thetaOrY >= 0) {
+					this.theta = 180 - absTheta;
+				}
+				else if (lengthOrX < 0 && thetaOrY < 0) {
+					this.theta = 180 + absTheta;
+				}
+				else {
+					this.theta = 360 - absTheta;
+				}
+			}else if (thetaOrY > 0) {
+				this.theta = 90;
+			}else {
+				this.theta = 270;
 			}
  		}
 	}
@@ -61,9 +69,9 @@ public class Vector {
 		return (int)(length * Math.sin(Math.toRadians(theta)));
 	}
 	
-	public void translateRelative(int x, int y) {
-		xPos += x;
-		yPos += y;
+	public void translateRelative(double x, double y) {
+		xPos = (int)(x+xPos);
+		yPos = (int)(y+yPos);
 	}
 	
 	public void translate(int x, int y) {
