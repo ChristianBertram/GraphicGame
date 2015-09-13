@@ -35,6 +35,12 @@ public class GameLoop {
 			
 			
 			Main.mainPlayer.update(delta);
+			for (int i = 0; i < Main.bullets.size(); i++) {
+				Main.bullets.get(i).update(delta);
+				if (Main.bullets.get(i).outsideBarrier()) {
+					Main.bullets.remove(i);
+				}
+			}
 			Window.repaint();
 			
 			

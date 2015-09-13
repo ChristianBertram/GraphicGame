@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Color;
 import painting.Window;
 import vector.Vector;
+import main.Main;
 
 public class Player {
 	private Vector posVector; //describing current position and direction and speed of movement
@@ -11,6 +12,8 @@ public class Player {
 	private Vector pointVector; //describing where to player is pointing (at mouse)
 	double accelSpeed = 3;
 	double topSpeed = 15;
+	long lastFireTime = System.nanoTime();
+	int fireDelay = 100000000;
 	
 	public Player(int startX, int startY) {
 		this.posVector = new Vector(startX, startY, 0, 0, true);
@@ -24,6 +27,8 @@ public class Player {
 		//Update angle (direction) to where mouse is relative to the player.
 		Vector playerToMouse = new Vector(posVector.getXPos(), posVector.getYPos(), Window.inputs.mouseX - posVector.getXPos(), Window.inputs.mouseY - posVector.getYPos(), false);
 		pointVector.rotate(playerToMouse.getTheta());
+		
+		fire();
 	}
 	
 	private void move(double delta) {
@@ -67,6 +72,13 @@ public class Player {
 		}
 		
 		posVector.translateRelative(posVector.getXLength() * delta, posVector.getYLength() * delta);
+	}
+	
+	private void fire() {
+		if (Window.inputs.mouseDown && System.nanoTime() - lastFireTime > fireDelay) {
+			lastFireTime = System.nanoTime();
+			Main.bullets.add(new bullet.Bullet(posVector.getXPos(), posVector.getYPos(), pointVector.getTheta()));
+		}
 	}
 	
 	public void paint(Graphics g, Color color) {
