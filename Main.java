@@ -1,11 +1,4 @@
-package main;
-
 import java.util.ArrayList;
-
-import gameLoop.GameLoop;
-import painting.Window;
-import player.Player;
-import bullet.Bullet;
 
 public class Main {
 	

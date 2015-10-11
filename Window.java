@@ -1,5 +1,3 @@
-package painting;
-
 import javax.swing.SwingUtilities;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -10,7 +8,7 @@ import java.awt.event.KeyListener;
 public class Window {
 	
 	public static JFrame f = null;
-	public static input.Inputs inputs = new input.Inputs();
+	public static Inputs inputs = new Inputs();
 
 	public static void main() {
 		SwingUtilities.invokeLater(new Runnable() {
@@ -43,12 +41,12 @@ public class Window {
 class MyPanel extends JPanel {
 	
 	public MyPanel() {		
-		KeyListener myKeyListener = new input.MyKeyListener(painting.Window.inputs);
+		KeyListener myKeyListener = new MyKeyListener(Window.inputs);
 		addKeyListener(myKeyListener);
 		setFocusable(true);
 		
-		addMouseListener(new input.MyMouseListener(painting.Window.inputs));
-		addMouseMotionListener(new input.MyMouseListener(painting.Window.inputs));
+		addMouseListener(new MyMouseListener(Window.inputs));
+		addMouseMotionListener(new MyMouseListener(Window.inputs));
     }
 	
 	@Override

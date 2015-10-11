@@ -1,4 +1,4 @@
-package vector;
+
 
 import java.awt.Graphics;
 import java.awt.Color;
@@ -100,11 +100,11 @@ public class Vector {
 		theta = simplifyAngle(rotation);
 	}
 	
-	public void sizeRelative(double extension) {
+	public void scaleRelative(double extension) {
 		length += extension;
 	}
 	
-	public void size(double extension) {
+	public void scale(double extension) {
 		length = extension;
 	}
 	

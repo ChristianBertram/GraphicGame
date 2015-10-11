@@ -1,9 +1,5 @@
-package bullet;
-
 import java.awt.Color;
 import java.awt.Graphics;
-import vector.Vector;
-import painting.Window;
 
 public class Bullet {
 	private Vector posVector; //describing current position and direction and speed of movement

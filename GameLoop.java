@@ -1,8 +1,3 @@
-package gameLoop;
-
-import painting.Window;
-import main.Main;
-
 public class GameLoop {
 	
 	public boolean stopLoop = false;

@@ -1,4 +1,4 @@
-package input;
+
 
 public class Inputs {
 	public boolean[] keys = new boolean[250];

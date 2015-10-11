@@ -1,10 +1,5 @@
-package player;
-
 import java.awt.Graphics;
 import java.awt.Color;
-import painting.Window;
-import vector.Vector;
-import main.Main;
 
 public class Player {
 	private Vector posVector; //describing current position and direction and speed of movement
@@ -56,19 +51,19 @@ public class Player {
 		
 		accelVector = new Vector(0, 0, xMove, yMove, false);
 		if (xMove != 0 || yMove != 0) {
-			accelVector.size(accelSpeed);
+			accelVector.scale(accelSpeed);
 		}else {
-			accelVector.size(0);
+			accelVector.scale(0);
 		}
 		
 		posVector = posVector.add(accelVector);
 		
 		if (posVector.getLength()-0.1 >= 0) {
-			posVector.size(posVector.getLength()-0.1);
+			posVector.scale(posVector.getLength()-0.1);
 		}
 		
 		if (posVector.getLength() > topSpeed) {
-			posVector.size(topSpeed);
+			posVector.scale(topSpeed);
 		}
 		
 		posVector.translateRelative(posVector.getXLength() * delta, posVector.getYLength() * delta);
@@ -77,7 +72,7 @@ public class Player {
 	private void fire() {
 		if (Window.inputs.mouseDown && System.nanoTime() - lastFireTime > fireDelay) {
 			lastFireTime = System.nanoTime();
-			Main.bullets.add(new bullet.Bullet(posVector.getXPos(), posVector.getYPos(), pointVector.getTheta()));
+			Main.bullets.add(new Bullet(posVector.getXPos(), posVector.getYPos(), pointVector.getTheta()));
 		}
 	}
 	
