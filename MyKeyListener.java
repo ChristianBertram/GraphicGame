@@ -1,21 +1,19 @@
-
-
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class MyKeyListener implements KeyListener {
-	
+
 	private Inputs out;
-	
+
 	public MyKeyListener(Inputs out) {
 		this.out = out;
 	}
-	
+
 	@Override
 	public void keyTyped(KeyEvent e) {
-		
+
 	}
-	
+
 	@Override
 	public void keyPressed(KeyEvent e) {
 		out.keys[e.getKeyCode()] = true;

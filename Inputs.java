@@ -1,5 +1,3 @@
-
-
 public class Inputs {
 	public boolean[] keys = new boolean[250];
 	public boolean mouseDown = false;
